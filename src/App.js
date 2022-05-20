@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Logo, Links, Button } from "../src/components/navbarHeader";
 
 function App() {
+  let name = [
+    {links:"Services"}, 
+    {links:"Projects"}, 
+    {links:"About"},
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        <Logo></Logo>
+        {name.map((user) => (
+          <div className="App-Links" key={user.links} >
+            <Links{...user}/>
+          </div>
+        ))}
+
+        <Button></Button>
+      </div>
     </div>
   );
 }
